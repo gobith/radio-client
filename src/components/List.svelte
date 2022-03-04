@@ -1,22 +1,14 @@
 <script lang="ts">
+  import Item from "./Item.svelte";
+  export let list;
+
+
 </script>
 
 <ul>
-  <li>Radio 1</li>
-  <li>Radio 2</li>
-  <li>3FM</li>
-  <li>Radio 4</li>
-  <li>Kink</li>
-  <li>Radio 1</li>
-  <li>Radio 2</li>
-  <li>3FM</li>
-  <li>Radio 4</li>
-  <li>Kink</li>
-  <li>Radio 1</li>
-  <li>Radio 2</li>
-  <li>3FM</li>
-  <li>Radio 4</li>
-  <li>Kink</li>
+  {#each list as item}
+  <Item {item} />
+  {/each}
 </ul>
 
 <style>
@@ -24,9 +16,9 @@
     list-style-type: none;
     overflow-y: auto;
     margin-bottom: 10px;
+    border: solid 1px black;
+    border-radius: 2px;
   }
 
-  li {
-    padding: 5px;
-  }
+  
 </style>

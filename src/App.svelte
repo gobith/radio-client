@@ -1,15 +1,17 @@
 <script lang="ts">
-  import Radio from "../src/components/Radio.svelte";
   import Display from "../src/components/Display.svelte";
   import List from "../src/components/List.svelte";
+  import radio_list from "./stores/radio-list-store";
 </script>
 
+{#if $radio_list}
 <div />
 <Display />
 <div />
 <div />
-<List />
+<List list={$radio_list} />
 <div />
+{/if}
 
 <style>
   :global(*) {
