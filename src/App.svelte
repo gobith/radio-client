@@ -1,16 +1,19 @@
 <script lang="ts">
   import Display from "../src/components/Display.svelte";
   import List from "../src/components/List.svelte";
-  import radio_list from "./stores/radio-list-store";
+  import radio_list from "./stores/list-store";
+  import item from "./stores/item-store";
 </script>
 
 {#if $radio_list}
-<div />
-<Display />
-<div />
-<div />
-<List list={$radio_list} />
-<div />
+  {#if $item}
+    <div />
+    <Display item={$item} />
+    <div />
+    <div />
+    <List list={$radio_list} />
+    <div />
+  {/if}
 {/if}
 
 <style>
