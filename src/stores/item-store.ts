@@ -9,7 +9,7 @@ const updateDisplay = (data) => {
 };
 
 fetch("display")
-  .then((res) => res.text())
+  .then((response) => response.json())
   .then((data) => {
     updateDisplay(data);
   });
