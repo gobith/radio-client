@@ -1,14 +1,18 @@
 <script lang="ts">
   import Display from "../src/components/Display.svelte";
+  import Panel from "../src/components/Panel.svelte";
   import List from "../src/components/List.svelte";
   import radio_list from "./stores/list-store";
-  import item from "./stores/item-store";
+  import display from "./stores/item-store";
 </script>
 
 {#if $radio_list}
-  {#if $item}
+  {#if $display}
     <div />
-    <Display item={$item} />
+    <Display display={$display} />
+    <div />
+    <div />
+    <Panel />
     <div />
     <div />
     <List list={$radio_list} />

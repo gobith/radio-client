@@ -1,8 +1,8 @@
 <script lang="ts">
-  export let item;
+  export let display;
 </script>
 
-<div>{item.station}</div>
+<div>{display.station} - {display.status}</div>
 
 <style>
   div {

@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { play } from "../stores/item-store";
+  import { change_station } from "../stores/item-store";
   export let item;
 
   const clicked = () => {
     // console.log(item);
-    play(item);
+    change_station(item);
   };
 </script>
 

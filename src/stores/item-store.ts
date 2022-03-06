@@ -1,22 +1,22 @@
 import { writable } from "svelte/store";
 
-const item = writable(null);
+const display = writable({ station: "NONE", status: "OFF" });
 
-export default item;
+export default display;
 
-fetch("/data/current.json")
+const updateDisplay = (data) => {
+  const object = JSON.parse(data);
+  display.set(object);
+};
+
+fetch("display")
   .then((res) => res.text())
   .then((data) => {
-    let object = JSON.parse(data);
-    item.set(object);
+    updateDisplay(data);
   });
 
-export const play = (selectedItem) => {
-  item.update(() => {
-    return selectedItem;
-  });
-
-  fetch("play", {
+export const change_station = (selectedItem) => {
+  fetch("change_station", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -25,7 +25,71 @@ export const play = (selectedItem) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("Success:", data);
+      updateDisplay(data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+};
+
+export const play = () => {
+  fetch("play", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      updateDisplay(data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+};
+
+export const stop = () => {
+  fetch("stop", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      updateDisplay(data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+};
+
+export const next = () => {
+  fetch("next", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      updateDisplay(data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+};
+
+export const prev = () => {
+  fetch("prev", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      updateDisplay(data);
     })
     .catch((error) => {
       console.error("Error:", error);
