@@ -10,6 +10,5 @@
     border-radius: 2px;
     padding: 30px;
     margin-top: 10px;
-    max-width: 400px;
   }
 </style>

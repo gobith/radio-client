@@ -8,15 +8,11 @@
 
 {#if $radio_list}
   {#if $display}
-    <div />
-    <Display display={$display} />
-    <div />
-    <div />
-    <Panel />
-    <div />
-    <div />
-    <List list={$radio_list} />
-    <div />
+    <div class="center">
+      <Display display={$display} />
+      <Panel />
+      <List list={$radio_list} />
+    </div>
   {/if}
 {/if}
 
@@ -31,13 +27,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    width: 100vw;
     height: 100vh;
+    color: white;
+  }
+
+  .center {
+    margin: auto;
+    width: auto;
+    max-width: 500px;
+    padding: 10px;
     display: grid;
     gap: 10px;
-    grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: min-content 1fr;
-    overflow: hidden;
-    color: white;
   }
 </style>
