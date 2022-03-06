@@ -5,8 +5,7 @@ const display = writable({ station: "NONE", status: "OFF" });
 export default display;
 
 const updateDisplay = (data) => {
-  const object = JSON.parse(data);
-  display.set(object);
+  display.set(data);
 };
 
 fetch("display")
@@ -16,6 +15,7 @@ fetch("display")
   });
 
 export const change_station = (selectedItem) => {
+  console.log("selected item", selectedItem);
   fetch("change_station", {
     method: "POST",
     headers: {
